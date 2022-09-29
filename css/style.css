@@ -1,0 +1,13 @@
+body{
+    background-color: Black;
+}
+
+#container{
+    color: white;
+    text-align: center;
+    font-family: Arial;
+    font-weight: bolder;
+    display: grid;
+    grid: repeat(3, 80px) / auto-flow;
+    padding-top: 10%;
+}
