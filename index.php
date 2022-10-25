@@ -3,11 +3,6 @@
     include('conexao.php');
 
     if(isset($_POST['email']) || isset($_POST['senha'])){
-        if(strlen($_POST['email']) == 0){
-            echo 'Preencha o campo e-mail.';
-        }else if(strlen($_POST['senha']) == 0){
-            echo 'Preencha o campo senha.';
-        }else{
             $email = $mysqli->real_escape_string($_POST['email']);
             $senha = $mysqli->real_escape_string($_POST['senha']);
 
@@ -32,7 +27,6 @@
                 echo 'Falha ao realizar o login.';
             }
         }
-    }
 ?>
 
 <!DOCTYPE html>
@@ -64,8 +58,22 @@
                 <p>
                     <button type="submit">Entrar</button>
                 </p>
+                <br />
+                <?php 
+                if(isset($_POST['email']) || isset($_POST['senha'])){
+                    if(strlen($_POST['email']) == 0 && strlen($_POST['senha']) == 0){
+                        echo '<b><p style="text-align:center;font-family:arial;color:white">Nenhum dos campos foi preenchido.</p></b>';
+                    }else if(strlen($_POST['email']) == 0){
+                        echo '<b><p style="text-align:center;font-family:arial;color:white">Preencha o campo e-mail.</p></b>';
+                    }else if(strlen($_POST['senha']) == 0){
+                        echo '<b><p style="text-align:center;font-family:arial;color:white">Preencha o campo senha.</p></b>';
+                    }
+                }?>
             </form>
         </div>
     </div>
+
+    <script src="js/bootstrap.min.js"></script>
+
 </body>
 </html>
